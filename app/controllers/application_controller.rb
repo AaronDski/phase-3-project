@@ -8,9 +8,12 @@ class ApplicationController < Sinatra::Base
 
   get "/parts_list" do
     { message: "Parts List!" }.to_json
+    Part.all.to_json
   end
   get "/cart" do
     { message: "cart!" }.to_json
+    Cart.all.to_json
   end
+  
 
 end
