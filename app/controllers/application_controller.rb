@@ -6,4 +6,11 @@ class ApplicationController < Sinatra::Base
     { message: "Good luck with your project!" }.to_json
   end
 
+  get "/parts_list" do
+    { message: "Parts List!" }.to_json
+  end
+  get "/cart" do
+    { message: "cart!" }.to_json
+  end
+
 end
