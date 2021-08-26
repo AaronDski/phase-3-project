@@ -7,13 +7,39 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/parts_list" do
-    { message: "Parts List!" }.to_json
+    
     Part.all.to_json
   end
   get "/cart" do
-    { message: "cart!" }.to_json
-    Cart.all.to_json
+    
+    User.first.carts.all.to_json
   end
-  
+  get "/cart/:id" do
+    
+    Cart.find(params[:id]).to_json
+  end
+
+
+  post "/cart" do
+    add = Cart.create(
+      user_id: params[:user_id],
+      part_id: params[:part_id],
+      
+      item_name: params[:item_name],
+      make: params[:make],
+      model: params[:model],
+      year: params[:year],
+      price: params[:price],
+
+    )
+    add.to_json
+  end
+  delete "/cart/:id" do
+  cart = Cart.find(params[:id])
+  cart.destroy
+  cart.to_json
+
+  end
+
 
 end

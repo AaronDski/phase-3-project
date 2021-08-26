@@ -13,6 +13,11 @@
 ActiveRecord::Schema.define(version: 2021_08_24_183755) do
 
   create_table "carts", force: :cascade do |t|
+    t.string "item_name"
+    t.string "make"
+    t.string "model"
+    t.integer "year"
+    t.float "price"
     t.integer "user_id"
     t.integer "part_id"
     t.index ["part_id"], name: "index_carts_on_part_id"

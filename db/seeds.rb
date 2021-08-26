@@ -28,7 +28,15 @@ User.create(name: "Aaron")
 
 puts "🌱 Seeding Cart..."
 
-Cart.create(user_id: User.ids.sample, part_id: Part.ids.sample)
+1.times do 
+item_name = ["Headlight", "Rims", "Tires", "Mirror"]
+make = ["Honda", "BMW", "Lexus", "Chevy"]
+model = ["Civic", "328i", "LFA", "Duramax"]
+year = rand(2000..2020)
+price = rand(30..100)
+
+Cart.create(item_name: item_name.sample, make: make.sample, model: model.sample, price: price, year: year, user_id: User.ids.sample, part_id: Part.ids.sample)
+end
 # Cart.create(user_id: user.sample, part_id: part.sample,)
 # Cart.create(user_id: user.sample, part_id: part.sample,)
 # Cart.create(user_id: user.sample, part_id: part.sample,)
